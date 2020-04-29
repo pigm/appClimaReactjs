@@ -2,15 +2,13 @@ import ServiceResult  from '../Result/ServiceResult';
 import {
   URLlogin, URLregister,
 } from '../Properties/ServiceProperties';
-import DataManager from '../../Utils/TransversalUtil/DataManager';
 
 export default class ServiceDelegate {
-  constructor(props){
-  }
-
+  
   static async apiLogin(loginRquest){
     var serviceResult = new ServiceResult();
-      var param = JSON.stringify({ loginRquest });
+      var param = JSON.stringify(loginRquest);
+      console.log(param);
         try {
            await fetch(URLlogin, {
             method: 'POST',
@@ -47,12 +45,13 @@ export default class ServiceDelegate {
             serviceResult.responseBody = null;
             serviceResult.statusCode = -999;
         }    
+        console.log(serviceResult);
     return serviceResult; 
   }
 
   static async apiRegister(registerRquest){
     var serviceResult = new ServiceResult();
-      var param = JSON.stringify({ registerRquest });
+      var param = JSON.stringify(registerRquest);
         try {
            await fetch(URLregister, {
             method: 'POST',

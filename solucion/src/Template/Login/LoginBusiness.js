@@ -7,8 +7,6 @@ import ServiceDelegate from '../../Service/Delegate/ServiceDelegate'
 
 export default class LoginBusiness
 {
-    constructor(){}
-    
     static async accessSession(username, password) {
       var result = false;
       if (
@@ -18,24 +16,25 @@ export default class LoginBusiness
       ) {
         var loginRequestObject = new LoginRequest(username, password);
         var response = await ServiceDelegate.apiLogin(loginRequestObject);
-        if (response.Success) {
-          if (response.ResponseBody === null) {
+        if (response.success) {
+          if (response.responseBody === null) {
             alert(LoginMessage.MESSAGE_DIALOG_INVALIDDATA)
           } else {
-            var jsonResponse = JSON.parse(response.ResponseBody);
-            var objectLoginResponse = new LoginResponse(
-              jsonResponse.token,
-              jsonResponse.error,
-            );
-            DataManager.ResponseLogin = objectLoginResponse;
-            if (DataManager.ResponseLogin.Token !== null) {
-              result = true;
-            }else{
+            try {
+              var jsonResponse = JSON.stringify(response.responseBody["token"]);
+              console.log(jsonResponse);
+              if (jsonResponse !== null) {
+                var objectLoginResponse = new LoginResponse(jsonResponse.token);
+                DataManager.ResponseLogin = objectLoginResponse;
+                result = true;
+                alert("Usuario correcto"); 
+              }
+            } catch{
               alert(LoginMessage.MESSAGE_DIALOG_INVALIDDATA);
-            }            
+            }
           }
         } else {
-          switch (response.StatusCode) {
+          switch (response.statusCode) {
             case -100:
               alert(LoginMessage.MESSAGE_DIALOG_INVALIDDATA);
               break;

@@ -1,15 +1,15 @@
 export default class RegisterResponse
 {
-  constructor(Token, NewError){
-      this.token = Token;
+  constructor(newToken, NewError){
+      this.token = newToken;
       this.error = NewError;
   }
 
   get Token(){
-      return this._Username;
+      return this.token;
   }
-  set Token(Token){
-      this.token = Token;
+  set Token(newToken){
+      this.token = newToken;
   }
 
   get Error(){

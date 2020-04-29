@@ -1,21 +1,21 @@
 export default class RegisterRequest
 {
   constructor(newEmail, newPassword){
-      this.Email = newEmail;
-      this.Password = newPassword;
+      this.email = newEmail;
+      this.password = newPassword;
   }
 
-  get email(){
-      return this.Email;
+  get Email(){
+      return this.email;
   }
-  set email(newEmail){
-      this.Email = newEmail;
+  set Email(newEmail){
+      this.email = newEmail;
   }
 
-  get password(){
-    return this.Password;
+  get Password(){
+    return this.password;
   }
-  set password(NewPassword){
-      this.Password = NewPassword;
+  set Password(NewPassword){
+      this.password = NewPassword;
   }
 }
