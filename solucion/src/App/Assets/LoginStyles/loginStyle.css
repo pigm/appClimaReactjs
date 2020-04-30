@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -18,7 +16,39 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.FormLogin {  
+  padding: 20px;
 }
+
+.LabStyle{
+  color: white;
+  font-size: calc(5px + 2vmin);
+}
+
+.InputStyle{
+  font-size: calc(5px + 2vmin);
+  width: 50vh;
+  text-align: left;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.ButtonIngresar{
+  color: #17202A;
+  padding: 5px 28px;
+  border-radius: 12px;
+  align-items: center;
+  
+}
+.LabRegis{
+  color: white;
+  font-size: calc(2px + 2vmin);
+  padding: 20px 28px;
+  align-items: center;
+  
+}
+
+
+
 
