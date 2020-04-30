@@ -1,0 +1,13 @@
+.LabNavStyle{
+  color: #222222;
+}
+
+.Nav-tabs{
+  margin: 2vmin;
+}
+
+.Nav-logo {
+  height: 5vmin;
+  margin: 2vmin;
+  pointer-events: none;
+}

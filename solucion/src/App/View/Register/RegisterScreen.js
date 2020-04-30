@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Assets/RegisterStyle/registerStyle.css';
+import '../../Assets/RegisterStyles/registerStyle.css';
 import RegisterBusiness from '../../../Template/Register/RegisterBusiness'
 
 export default class RegisterScreen extends React.Component {
