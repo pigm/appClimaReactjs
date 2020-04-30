@@ -8,7 +8,6 @@ export default class ServiceDelegate {
   static async apiLogin(loginRquest){
     var serviceResult = new ServiceResult();
       var param = JSON.stringify(loginRquest);
-      console.log(param);
         try {
            await fetch(URLlogin, {
             method: 'POST',
@@ -45,7 +44,6 @@ export default class ServiceDelegate {
             serviceResult.responseBody = null;
             serviceResult.statusCode = -999;
         }    
-        console.log(serviceResult);
     return serviceResult; 
   }
 

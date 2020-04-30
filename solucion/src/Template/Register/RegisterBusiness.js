@@ -18,11 +18,11 @@ export default class RegisterBusiness
       ) {
         var registerRequestObject = new RegisterRequest(username, password);
         var response = await ServiceDelegate.apiRegister(registerRequestObject);
-        if (response.Success) {
-          if (response.ResponseBody === null) {
+        if (response.success) {
+          if (response.responseBody === null) {
             alert(RegisterMessage.MESSAGE_DIALOG_INVALIDDATA)
           } else {
-            var jsonResponse = JSON.parse(response.ResponseBody);
+            var jsonResponse = JSON.parse(response.responseBody);
             var objectRegisterResponse = new RegisterResponse(
               jsonResponse.token,
               jsonResponse.error,
@@ -32,10 +32,23 @@ export default class RegisterBusiness
               result = true;
             }else{
               alert(RegisterMessage.MESSAGE_DIALOG_INVALIDDATA);
-            }            
+            }     
+            
+            try {
+              var jsonResponse = JSON.stringify(response.responseBody["token"]);
+              console.log(jsonResponse);
+              if (jsonResponse !== null) {
+                var objectRegisterResponse = new RegisterResponse(jsonResponse.token);
+                DataManager.ResponseRegister = objectRegisterResponse;
+                result = true;
+                alert("Usuario registrado"); 
+              }
+            } catch{
+              alert(LoginMessage.MESSAGE_DIALOG_INVALIDDATA);
+            }
           }
         } else {
-          switch (response.StatusCode) {
+          switch (response.statusCode) {
             case -100:
               alert(RegisterMessage.MESSAGE_DIALOG_INVALIDDATA);
               break;
