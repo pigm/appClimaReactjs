@@ -4,10 +4,9 @@ import '../../Assets/LoginStyles/loginStyle.css';
 import LoginBusiness from '../../../Template/Login/LoginBusiness';
 
 
+
 export default class LoginScreen extends React.Component {
-  shoot() {
-    alert("");
-  }
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -16,33 +15,31 @@ export default class LoginScreen extends React.Component {
     };
     this.Username = this.Username.bind(this);
     this.Password = this.Password.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 
   Username(user) {
     this.setState({ username: user.target.value });
   }
   Password(pass) {
     this.setState({ password: pass.target.value });
-  }
-  handleSubmit(event) {
+  } 
 
-  }
-
-  render() {
+  render() {  
+     
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>¡Pronóstico meteorológico de tu ciudad!</p>
+          <p className="LabTitle">¡Pronóstico meteorológico de tu ciudad!</p>
         
           <div className="FormLogin">
             <label className="LabStyle">Correo</label>
             <br />
             <input
               className="InputStyle"
-              type="text"
-              placeholder="Tú correo..."
+              type="email"
+              placeholder="example@correo.cl"
               value={this.state.username}
               onChange={this.Username} />
             <br />
@@ -50,8 +47,8 @@ export default class LoginScreen extends React.Component {
             <br />
             <input
               className="InputStyle"
-              type="text"
-              placeholder="Tú contraseña..."
+              type="password"
+              placeholder="********************"
               value={this.state.password}
               onChange={this.Password} />
 
@@ -59,7 +56,7 @@ export default class LoginScreen extends React.Component {
 
             
           </div>
-          <button className="ButtonIngresar"
+          <button class="btn btn-primary col-md-3"
               onClick={async () => {
                 var response = await LoginBusiness.accessSession(this.state.username, this.state.password);
                 if (response) {
@@ -69,12 +66,8 @@ export default class LoginScreen extends React.Component {
               }>
               INGRESAR
           </button>
-
-          <label className="LabRegis">¿No tienes cuenta? Registrate aquí.</label>
-
         </header>
       </div>
-
     );
   }
 }

@@ -7,7 +7,7 @@
 
 
 .App-header {
-  background-color: #282c34;
+  background-color: #E0E0E0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,8 +22,13 @@
 }
 
 .LabStyle{
-  color: white;
-  font-size: calc(5px + 2vmin);
+  color: #666666;
+  font-size: calc(4px + 2vmin);
+}
+
+.LabTitle{
+  color: #333333;
+  font-size: calc(12px + 2vmin);
 }
 
 .InputStyle{

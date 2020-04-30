@@ -32,7 +32,7 @@ export default class RegisterBusiness
                 alert("Usuario registrado"); 
               }
             } catch{
-              alert(LoginMessage.MESSAGE_DIALOG_INVALIDDATA);
+              alert(RegisterMessage.MESSAGE_DIALOG_INVALIDDATA);
             }
           }
         } else {
