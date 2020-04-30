@@ -22,18 +22,6 @@ export default class RegisterBusiness
           if (response.responseBody === null) {
             alert(RegisterMessage.MESSAGE_DIALOG_INVALIDDATA)
           } else {
-            var jsonResponse = JSON.parse(response.responseBody);
-            var objectRegisterResponse = new RegisterResponse(
-              jsonResponse.token,
-              jsonResponse.error,
-            );
-            DataManager.ResponseRegister = objectRegisterResponse;
-            if (DataManager.ResponseRegister.Token !== null) {
-              result = true;
-            }else{
-              alert(RegisterMessage.MESSAGE_DIALOG_INVALIDDATA);
-            }     
-            
             try {
               var jsonResponse = JSON.stringify(response.responseBody["token"]);
               console.log(jsonResponse);
