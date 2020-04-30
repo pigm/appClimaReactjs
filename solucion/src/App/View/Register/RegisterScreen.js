@@ -27,7 +27,7 @@ export default class RegisterScreen extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <body className="App-header">
           <p className="LabTitle">Registro</p>
           <div className="FormLogin">
             <label className="LabStyle">Correo</label>
@@ -59,7 +59,7 @@ export default class RegisterScreen extends React.Component {
               }>
               REGISTRAR
           </button>
-        </header>
+        </body>
       </div>
 
     );

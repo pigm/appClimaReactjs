@@ -4,7 +4,6 @@ import '../../Assets/LoginStyles/loginStyle.css';
 import LoginBusiness from '../../../Template/Login/LoginBusiness';
 
 
-
 export default class LoginScreen extends React.Component {
   
   constructor(props) {
@@ -16,8 +15,6 @@ export default class LoginScreen extends React.Component {
     this.Username = this.Username.bind(this);
     this.Password = this.Password.bind(this);
   }
-
-
   Username(user) {
     this.setState({ username: user.target.value });
   }
@@ -26,10 +23,9 @@ export default class LoginScreen extends React.Component {
   } 
 
   render() {  
-     
     return (
       <div className="App">
-        <header className="App-header">
+        <body className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p className="LabTitle">¡Pronóstico meteorológico de tu ciudad!</p>
         
@@ -60,13 +56,13 @@ export default class LoginScreen extends React.Component {
               onClick={async () => {
                 var response = await LoginBusiness.accessSession(this.state.username, this.state.password);
                 if (response) {
-                  //Aqui hay que navegar o redireccionar a la página de home...
+                  //Aqui hay que navegar o redireccionar a la página de home...                                  
                 }
               }
               }>
               INGRESAR
           </button>
-        </header>
+        </body>
       </div>
     );
   }
